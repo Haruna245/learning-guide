@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
+
+    <link rel="stylesheet" href="{% static 'externalFiles/dist/bootstrap.min.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <div class="container d-flex mt-3" style="height: 50vh;">
+        <div class="border border-info" style="height: 50%;width: 30%;">
+            <img src="{% static 'externalFiles/images/photo_2023-07-21_07-20-36.jpg' %}" alt="" style=" height: 100%; width: 100%;">
+        </div>
+        <div class="m-4 border border-dark" style="width: 100%;">
+            <div>
+               <h1>Lecturer Name</h1> 
+            </div>
+            <div class="d-flex m-4">
+                <div>
+                    <h5 class="container">lecturer</h5>
+                    <h5 class="container">lecturer</h5>
+                    <h5 class="container">lecturer</h5>
+                </div>
+                <div class="d-flex " style="width: 50%;margin-left: 100px;">
+                 <div class="">
+                    <h5 class="container">lecturer</h5>
+                    <h5 class="container">lecturer</h5>
+                    <h5 class="container">lecturer</h5>
+                 </div> 
+                  
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

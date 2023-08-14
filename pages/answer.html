@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answers Page</title>
+
+    <link rel="stylesheet" href="{% static 'externalFiles/dist/bootstrap.min.css' %}" rel="stylesheet" />
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-5">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Title</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'homepage'%}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Disabled</a>
+              </li>
+            </ul>
+            <!-- <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+              <a href="{% url 'signin'%}" class="btn btn-primary mx-2" type="submit">logout</a>
+              <button class="btn btn-outline-success" type="submit">Search</button>
+           <!--  </form> -->
+          </div>
+        </div>
+      </nav>
+      <p>hello</p>
+   <div class="mt-5 px-3 text-center">
+    <h1>Questions & Answers</h1>
+   </div>
+   <div class="container mt-3">
+    
+       {% for item in question %}
+       
+       <h5>Questions</h5>
+       <hr>
+       <div style="display: flex;flex-direction: row;">
+        <!-- <p class="me-2">hello </p>  -->
+        <img class="me-2" src="{{item.studentProfile.ProfilePic.url}}" alt="" style="width: 50px;height: 50px;border-radius: 50px;">
+        <a class="mt-3" href="{% url 'profileDetail' item.student.id %}">{{item.student.firstname}} {{item.student.lastname}} </a>
+       </div>
+       <p>Que. <span><strong>{{item.question}}</strong></span></p>
+       <p><small><em>Question posted by: {{item.student.firstname}} <span>{{item.timestamp}}</em></small></span></p>
+        <!-- <p>Bio: {{item.studentProfile.bio}}</p> -->
+       <div class="container  m-4 p-2 border  rounded" style="background-color: #E3F4F4;">
+
+           <h5>Answers</h5>
+           <hr>
+           <!-- <p>{{item.id}}</p> -->
+    
+           {% for ans in answers %}
+    
+           {% if item.id == ans.question.id %}
+           <div class="" style="display: flex;flex-direction: row;">
+            <!-- <p class="me-2">hello </p>  -->
+            <img class="me-2" src="{{ans.authorProfile.ProfilePic.url}}" alt="" style="width: 50px;height: 50px;border-radius: 50px;">
+            <a class="mt-3 rounded link-underline-dark" href="{% url 'profileDetail' ans.author.id %}">{{ans.author.firstname}} {{ans.author.lastname}}</a>
+            <!-- <p class="mt-3">{{ans.author.firstname}} {{ans.author.lastname}}</p> -->
+           </div>
+           <p class="">Ans. {{ans.answer}}</p>
+           <p><small><em>answered by: {{ans.author.firstname}}  <span>{{ans.timestamp}}</span></em></small></p>
+           
+           
+           <!-- <p>bio {{ans.authorProfile.bio}} </p> -->
+           
+           <hr>
+    
+           {% endif %}
+           <!-- <p>{{ans.question.id}}</p>
+           <p>{{ans.answers}}</p> -->
+           {% endfor %}
+       </div>
+
+       
+
+    <h4>Post Answers</h4>
+    <div class="mb-4">
+        <form action="answer" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">post your Questions</label>
+                <textarea class="form-control w-100" placeholder="Type your answer........" name="textarea" id="exampleFormControlTextarea1" rows="5">
+
+                </textarea>
+                
+                <input class="d-none" type="text"  name="id" value="{{item.id}}" id="">
+              </div>
+              <div class="mt-3">
+                <input type="submit" value="submit" class="btn btn-primary">
+              </div>
+        </form>
+    </div>
+    
+       {% endfor %}
+   </div>
+   
+</body>
+</html>

@@ -1,0 +1,160 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.108.0">
+    <title>Create an account</title>
+
+    
+    <link rel="stylesheet" href="{% static 'externalFiles/dist/bootstrap.min.css' %}" rel="stylesheet" />
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(110, 193, 241, 0.1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <!-- <link href="modals.css" rel="stylesheet"> -->
+  </head>
+  <body>
+    
+
+<div class="modal modal-signin position-static d-block  py-5" tabindex="-1" role="dialog" id="modalSignin" style="background-color: #8EC5FC;
+background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <!-- <h1 class="modal-title fs-5" >Modal title</h1> -->
+        <h1 class="fw-bold mb-0 fs-2">Sign up for free</h1>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       --> 
+    </div>
+
+      <div class="modal-body p-5 pt-0">
+        <form class="" action="signup" method="post">
+          {% csrf_token %}
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="floatingInput" name="firstname" placeholder="name@example.com">
+            <label for="floatingInput">Firstname</label>
+            </div>
+            <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="floatingInput" name="lastname" placeholder="name@example.com">
+            <label for="floatingInput">lastname</label>
+            </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control rounded-3" id="floatingInput" name="Email" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-3" id="floatingPassword" name="password" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-3" id="floatingPassword" name="Conf_password" placeholder="Password">
+            <label for="floatingPassword">Confirm Password</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="floatingInput" name="phonenumber" placeholder="024*******">
+            <label for="floatingInput">Phonenumber</label>
+            </div>
+          <div class="mb-5">
+            <label for="exampleSelect" class="form-label">Student/Instructor</label>
+            <select class="form-select" id="exampleSelect" name="userType">
+              <option selected>Open this select menu to select</option>
+              <!-- <option value="student">student</option> -->
+              <option value="Instructor">Instructor</option>
+            </select>
+          </div>
+          <div class="form-floating mb-3">
+            <!-- <label for="floatingInput"  class="form-label">Subject Area</label> -->
+            <input type="text" class="form-control rounded-3" id="floatingInput" name="subject" placeholder="subject">
+            <label for="floatingInput">Subject Area</label>
+            </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>
+          <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small><br>
+          <div class="float-end">
+            <small class="text-muted">Already a member?</small><a href="{% url 'signin'%}">signin</a>
+          </div>
+          
+          <hr class="my-4">
+          <!-- <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
+          <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3" type="submit">
+            <svg class="bi me-1" width="16" height="16"><use xlink:href="#twitter"/></svg>
+            Sign up with Twitter
+          </button>
+          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
+            <svg class="bi me-1" width="16" height="16"><use xlink:href="#facebook"/></svg>
+            Sign up with Facebook
+          </button>
+          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+            <svg class="bi me-1" width="16" height="16"><use xlink:href="#github"/></svg>
+            Sign up with GitHub
+          </button> -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="b-example-divider"></div> -->
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+</html>
