@@ -130,5 +130,22 @@ def logout_view(request):
 
 def lectProfile(request,id):
     profile = Profile.objects.get(user__id=id)
-    print(profile)
+    #print(profile)
+    if request.method == "POST":
+        print("hello")
+        print(request)
+
+        title = request.POST['title']
+        #print(request.POST['docs'])
+        description = request.POST['description']
+        file = request.POST['docs']
+        subject = request.POST['subject']
+        material = materials.objects.create(author=request.user,materials=file,
+                                        title= title,description=description,
+                                           subject=subject   )
     return render(request,'dash.html',{'profile':profile})
+
+
+def addMaterial(request):
+    print(request)
+    return render(request,'dash.html')

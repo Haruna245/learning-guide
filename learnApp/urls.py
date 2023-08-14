@@ -15,6 +15,7 @@ urlpatterns = [
     path('profile',views.profile,name="profiles"),
     path('lectprofile/<str:id>/',views.lectProfile,name="lectprofile"),
     path('profile/<str:id>/',views.ProfileDetail,name="profileDetail"),
+    path('addMaterial',views.addMaterial,name="addMaterials"),
 
 
 ]

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.112.5">
-    <title>Dashboard Template · Bootstrap v5.3</title>
+    <title>Profile Page</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
     <link rel="stylesheet" href="{% static 'externalFiles/dist/bootstrap.min.css' %}" rel="stylesheet" />
@@ -202,7 +202,7 @@
 </svg>
 
 <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Company name</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Smart Tech</a>
 
   <ul class="navbar-nav flex-row d-md-none">
     <li class="nav-item text-nowrap">
@@ -233,24 +233,24 @@
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{% url 'home'%}">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
-                Dashboard
+                Home
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#file-earmark"/></svg>
-                Orders
+                Add materials
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
+            <!-- <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <svg class="bi"><use xlink:href="#cart"/></svg>
-                Products
+                Submit and Answer Questions
               </a>
-            </li>
-            <li class="nav-item">
+            </li> -->
+            <!-- <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#people"/></svg>
                 Customers
@@ -267,7 +267,7 @@
                 <svg class="bi"><use xlink:href="#puzzle"/></svg>
                 Integrations
               </a>
-            </li>
+            </li> -->
           </ul>
 
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
@@ -276,7 +276,7 @@
               <svg class="bi"><use xlink:href="#plus-circle"/></svg>
             </a>
           </h6>
-          <ul class="nav flex-column mb-auto">
+          <!-- <ul class="nav flex-column mb-auto">
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
@@ -301,7 +301,7 @@
                 Year-end sale
               </a>
             </li>
-          </ul>
+          </ul> -->
 
           <hr class="my-3">
 
@@ -325,31 +325,114 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Lecturer Profile</h1>
+        <h1 class="h2">Profile</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button> -->
+            <!-- Button trigger modal -->
+            {% if request.user.userType == "instructor" %}
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Add materials
+        </button>
+          {% endif %}
+
           </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
+          <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
             <svg class="bi"><use xlink:href="#calendar3"/></svg>
             This week
-          </button>
+          </button> -->
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Add materials</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form class="row g-3" method="post" action="">
+                {% csrf_token %}
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label">Title</label>
+                  <input type="text" class="form-control" name="title" id="inputEmail4">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputPassword4" class="form-label">Description</label>
+                  <input type="text" class="form-control" name="description" id="inputPassword4">
+                </div>
+                <!-- <div class="col-12">
+                  <label for="inputAddress" class="form-label">subject</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div> -->
+                <div class="col-12">
+                  <label for="inputAddress2" class="form-label">upload file</label>
+                  <input type="file" class="form-control" id="docs" name="docs" placeholder="">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputState" class="form-label">subject</label>
+                  <select id="inputState" name="subject" class="form-select">
+                    <!-- <option selected>Choose...</option> -->
+                    <option selected>Choose....</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Science">Science</option>
+                    <option value="Computer Science">Computer Science</option>
+                  </select>
+                </div>
+                <!--<div class="col-md-6">
+                  <label for="inputCity" class="form-label">City</label>
+                  <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputState" class="form-label">State</label>
+                  <select id="inputState" class="form-select">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label">Zip</label>
+                  <input type="text" class="form-control" id="inputZip">
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                      Check me out
+                    </label>
+                  </div>
+                </div> -->
+                <!-- <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Sign in</button>
+                </div> -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <input class="btn btn-primary" type="submit" value="submit">
+                  <!-- <button type="button" class="btn btn-primary">Submit</button> -->
+                </div>
+              </form>
+            </div>
+            
+          
+          </div>
         </div>
       </div>
 
-      <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+      <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> {% static 'externalFiles/images/photo_2023-07-21_07-20-36.jpg' %} -->
       <div class="container d-flex mt-3" style="height: 50vh;">
-        <div class="border border-info" style="height: 50%;width: 30%;">
-            <img src="{% static 'externalFiles/images/photo_2023-07-21_07-20-36.jpg' %}" alt="" style=" height: 100%; width: 100%;">
+        <div class="border rounded" style="height: 60%;width: 30%;">
+            <img class="shadow rounded" src="{{profile.ProfilePic.url}}" alt="" style=" height: 100%; width: 100%;">
         </div>
         <div class="m-4 border shadow p-2" style="width: 100%;background-color: aliceblue;">
             <div>
-               <h1>Lecturer Name: {{profile.user.firstname}}</h1> 
+               <h1>Name: {{profile.user.firstname | title}} {{profile.user.lastname}}</h1> 
             </div>
             <div class="d-flex m-4">
                 <div>
-                  Status:<h5 class="container">{{profile.user.userType | title}}</h3>
+                    <!-- <h5 class="container">{{profile.user.userType | title}}</h3> -->
+                      <p class="container">Status: <strong>{{profile.user.userType | title}}</strong> </p>
                     <p class="container">Email: <strong>{{profile.user.email}}</strong> </p>
                     <p class="container">Tel Number:  <strong>{{profile.user.phonenumber}}</strong> </p>
                 </div>
@@ -379,6 +462,6 @@
 
     </script> -->
     <!-- <script src="dashboard.js"></script> -->
-    
+    <script src="{% static 'externalFiles/bootstrap.bundle.min.js' %}"></script>
   </body>
 </html>

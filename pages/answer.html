@@ -50,7 +50,7 @@
        <div style="display: flex;flex-direction: row;">
         <!-- <p class="me-2">hello </p>  -->
         <img class="me-2" src="{{item.studentProfile.ProfilePic.url}}" alt="" style="width: 50px;height: 50px;border-radius: 50px;">
-        <a class="mt-3" href="{% url 'profileDetail' item.student.id %}">{{item.student.firstname}} {{item.student.lastname}} </a>
+        <a class="mt-3" href="{% url 'lectprofile' item.student.id %}">{{item.student.firstname}} {{item.student.lastname}} </a>
        </div>
        <p>Que. <span><strong>{{item.question}}</strong></span></p>
        <p><small><em>Question posted by: {{item.student.firstname}} <span>{{item.timestamp}}</em></small></span></p>
@@ -67,7 +67,7 @@
            <div class="" style="display: flex;flex-direction: row;">
             <!-- <p class="me-2">hello </p>  -->
             <img class="me-2" src="{{ans.authorProfile.ProfilePic.url}}" alt="" style="width: 50px;height: 50px;border-radius: 50px;">
-            <a class="mt-3 rounded link-underline-dark" href="{% url 'profileDetail' ans.author.id %}">{{ans.author.firstname}} {{ans.author.lastname}}</a>
+            <a class="mt-3 rounded link-underline-dark" href="{% url 'lectprofile' ans.author.id %}">{{ans.author.firstname}} {{ans.author.lastname}}</a>
             <!-- <p class="mt-3">{{ans.author.firstname}} {{ans.author.lastname}}</p> -->
            </div>
            <p class="">Ans. {{ans.answer}}</p>

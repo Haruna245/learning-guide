@@ -138,26 +138,7 @@
 
 <main class="mt-1">
   
- <!-- <div class="image-container d-flex align-items-center justify-content-center" style="background-image: url('../static/externalFiles/images/ldy1.jpg');position: relative;
- width: 100%;
- height: 60vh;
- background-size: 100% 100%;
- background-repeat: no-repeat;
- background-position: center;
- background-color:#dffc8e ;">
-  <div class="overlay d-flex align-items-center justify-content-center w-100 h-100" style="background-color: rgba(48, 45, 45, 0.5);">
-    <div class="text-center text-white">
-      <h1 class="fw-bold">{{request.user.firstname|title}}, Welcome to SmartTech Educational Platform</h1>
-      <p class="lead text-white">Get access to free learning materials from your favourite course Instructors and get help on questions your are stucked with.</p>
-        <p>
-      <div class="button-container">
-        <a href="{%url 'QuestionPage' %}" class="btn btn-primary m-2">Submit Questions</a>
-        <a href="{%url 'answerPage' %}" class="btn btn-secondary m-2">View Answers to Questions</a>
-      </div>
-    </div>
-  </div>
-</div> -->
-
+ 
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" style="background-color: black;">
@@ -227,7 +208,7 @@
       <div class="row g-0">
 
       {% for idx in items %}
-      <div class="col p-2">
+      <div class="col p-2 m-4">
         <div class="card shadow" id="pdf-card" style="width: 300px;">
         <img src="{% static 'externalFiles/images/pdfCover.jpg' %}" alt="PDF Cover" class="pdf-cover m-1">
         <div class="card-body">
@@ -263,40 +244,38 @@
 
     <div class="row">
       <div class="col-6 col-md-2 mb-3">
-        <h5>Contact us</h5>
+        <h5 class="text-white">Contact us</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Elvis Karikari</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Elvis Karikari</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Elvis Karikari</a></li>
+          
         </ul>
       </div>
   
       <div class="col-6 col-md-2 mb-3">
-        <h5>Section</h5>
+        <h5 class="text-white">Email</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">elviskarikari@gmail.com</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">elviskarikari@gmail.com</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">elviskarikari@gmail.com</a></li>
+          
         </ul>
       </div>
   
       <div class="col-6 col-md-2 mb-3">
-        <h5>Section</h5>
+        <h5 class="text-white">Tel: number</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">0240209946</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">0240209946</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">0240209946</a></li>
+<!--           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li> -->
         </ul>
       </div>
   
       <div class="col-md-5 offset-md-1 mb-3">
-        <form>
+        <!-- <form>
           <h5>Subscribe to our newsletter</h5>
           <p>Monthly digest of what's new and exciting from us.</p>
           <div class="d-flex flex-column flex-sm-row w-100 gap-2">
@@ -304,7 +283,7 @@
             <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
             <button class="btn btn-primary" type="button">Subscribe</button>
           </div>
-        </form>
+        </form> -->
       </div>
     </div>
     <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top text-white">
